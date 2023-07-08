@@ -2,9 +2,8 @@ using UnityEngine;
 
 public class Bitten : MonoBehaviour
 {
-    //public CircleCollider2D circleCollider;
-    //public SpriteRenderer _currentSprite;
-    //public Sprite _newSprite;
+    public GameObject zombiePrefab;
+    public Transform spawnPoint;
 
     private bool isTriggered;
 
@@ -13,8 +12,8 @@ public class Bitten : MonoBehaviour
         if (!isTriggered)
         {
             isTriggered = true;
-            Debug.Log("humans turned zombie");
-            //_currentSprite.sprite = _newSprite;
+            GameObject zombie = Instantiate(zombiePrefab, spawnPoint.position, spawnPoint.rotation);
+            zombie.GetComponent<Rigidbody2D>();
             Destroy(gameObject);
         }
     }
