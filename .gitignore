@@ -42,3 +42,15 @@ Thumbs.db
 *.vsidx
 *.log
 *.bin
+*.log
+Zombie Human/.vs/Zombie Human/v17/fileList.bin
+Zombie Human/Logs/AssetImportWorker0-prev.log
+Zombie Human/Logs/AssetImportWorker0.log
+Zombie Human/Logs/AssetImportWorker1-prev.log
+Zombie Human/Logs/AssetImportWorker1.log
+Zombie Human/Logs/shadercompiler-AssetImportWorker0.log
+Zombie Human/Logs/shadercompiler-UnityShaderCompiler.exe0.log
+Zombie Human/Logs/shadercompiler-UnityShaderCompiler.exe1.log
+Zombie Human/Logs/shadercompiler-UnityShaderCompiler.exe2.log
+Zombie Human/UserSettings/Layouts/CurrentMaximizeLayout.dwlt
+Zombie Human/UserSettings/Layouts/default-2021.dwlt

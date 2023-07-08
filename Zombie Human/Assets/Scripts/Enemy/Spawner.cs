@@ -43,6 +43,8 @@ public class Spawner : MonoBehaviour
             else
             {
                 waveTimer = 0;
+                currWave += 1;
+                GenerateWave();
             }
         }
         else
