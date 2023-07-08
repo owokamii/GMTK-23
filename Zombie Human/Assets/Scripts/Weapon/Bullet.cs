@@ -11,6 +11,13 @@ public class Bullet : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Destroy(collision.gameObject);
+        if (collision.gameObject.CompareTag("Player") || collision.gameObject.CompareTag("Zombie"))
+        {
+            Destroy(collision.gameObject);
+        }
+        else if (collision.gameObject.CompareTag("Human"))
+        {
+            Destroy(gameObject);
+        }
     }
 }

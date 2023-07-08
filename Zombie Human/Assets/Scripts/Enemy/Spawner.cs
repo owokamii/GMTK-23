@@ -12,6 +12,8 @@ public class Spawner : MonoBehaviour
 
     public bool stop;
 
+    public float timer;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -38,7 +40,7 @@ public class Spawner : MonoBehaviour
             //Instantiate(cusPrefabs[randCus], spawnpoint.position, Quaternion.identity);
             //Instantiate(cusPrefabs[randCus], spawnpoint.position + new Vector3(1f, 0f, 0f), Quaternion.identity);
 
-            yield return new WaitForSeconds(10);
+            yield return new WaitForSeconds(timer);
         }
     }
 

@@ -5,7 +5,7 @@ public class PlayerDetector : MonoBehaviour
 {
     public UnityEvent _interactAction;
     public KeyCode _interactKey;
-
+    
     private bool _inRange;
 
     void Update()
