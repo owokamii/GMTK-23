@@ -172,9 +172,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 44156981371011391}
+  - component: {fileID: 8794596712532530448}
   - component: {fileID: 44156981371011388}
-  - component: {fileID: 44156981371011389}
-  - component: {fileID: 44156981371011390}
+  - component: {fileID: 5110445322164676841}
+  - component: {fileID: 4477503531900358758}
+  - component: {fileID: -5105473875288627315}
+  - component: {fileID: 8587379299160132178}
+  - component: {fileID: 7191017395046766135}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -198,6 +202,27 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!50 &8794596712532530448
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5360787451234876603}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!114 &44156981371011388
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -225,8 +250,66 @@ MonoBehaviour:
   traversableTags: -1
   tagPenalties: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
   graphMask:
-    value: -1
---- !u!114 &44156981371011389
+    value: 1
+--- !u!114 &5110445322164676841
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5360787451234876603}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 789df2241ed030e4599f56123409e582, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _interactAction:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4477503531900358758}
+        m_TargetAssemblyTypeName: Bitten, Assembly-CSharp
+        m_MethodName: HumanToZombie
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _interactKey: 32
+--- !u!114 &4477503531900358758
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5360787451234876603}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c83157eb7d572a44aa1ac9dffa45c10, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  zombiePrefab: {fileID: 7797231959231645532, guid: a8dd12e5ff3d3b442b827621eadd1840, type: 3}
+  spawnPoint: {fileID: 5820253315834247341}
+--- !u!114 &-5105473875288627315
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5360787451234876603}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30c4bf5623b37ac43aa1ccbbf4698f71, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 0}
+  speed: 2
+  nextWayPointDistance: 0.25
+  reachedEndOfPath: 0
+--- !u!114 &8587379299160132178
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -242,8 +325,8 @@ MonoBehaviour:
   radius: 0.5
   height: 2
   canMove: 1
-  maxSpeed: 3
-  gravity: {x: 0, y: 0, z: 0}
+  maxSpeed: 1
+  gravity: {x: NaN, y: NaN, z: NaN}
   groundMask:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -262,13 +345,13 @@ MonoBehaviour:
   maxAcceleration: -2.5
   rotationSpeed: 360
   slowdownDistance: 0.6
-  pickNextWaypointDist: 1.2
+  pickNextWaypointDist: 2
   endReachedDistance: 0.2
   alwaysDrawGizmos: 0
   slowWhenNotFacingTarget: 1
   whenCloseToDestination: 0
   constrainInsideGraph: 0
---- !u!114 &44156981371011390
+--- !u!114 &7191017395046766135
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -281,7 +364,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  target: {fileID: 44156981371011391}
+  target: {fileID: 0}
+  tag: Player
 --- !u!1 &5818955503404585265
 GameObject:
   m_ObjectHideFlags: 0
@@ -293,8 +377,6 @@ GameObject:
   - component: {fileID: 5818955503404585279}
   - component: {fileID: 5818955503404585264}
   - component: {fileID: 5818955503404585277}
-  - component: {fileID: 5818955503404585278}
-  - component: {fileID: 5818955503404585276}
   m_Layer: 6
   m_Name: Human
   m_TagString: Human
@@ -388,48 +470,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.92062664
---- !u!114 &5818955503404585278
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5818955503404585265}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 789df2241ed030e4599f56123409e582, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _interactAction:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 5818955503404585276}
-        m_TargetAssemblyTypeName: Bitten, Assembly-CSharp
-        m_MethodName: HumanToZombie
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  _interactKey: 32
---- !u!114 &5818955503404585276
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5818955503404585265}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7c83157eb7d572a44aa1ac9dffa45c10, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  zombiePrefab: {fileID: 7797231959231645532, guid: a8dd12e5ff3d3b442b827621eadd1840, type: 3}
-  spawnPoint: {fileID: 5820253315834247341}
 --- !u!1 &7856201696085172350
 GameObject:
   m_ObjectHideFlags: 0
