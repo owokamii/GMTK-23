@@ -1721,10 +1721,14 @@ MonoBehaviour:
   - {fileID: 380719995}
   - {fileID: 271976482}
   enemies:
-  - {fileID: 5360787451234876603, guid: 2e6924eb76d26a141a95a8a8c96cd30f, type: 3}
+  - enemyPrefab: {fileID: 5360787451234876603, guid: 2e6924eb76d26a141a95a8a8c96cd30f, type: 3}
+    cost: 1
+  - enemyPrefab: {fileID: 5360787451234876603, guid: 227137d91a4abb544a3af5bbba01b37f, type: 3}
+    cost: 3
+  enemiesToSpawn: []
+  currWave: 1
   spawnVal: {x: 0, y: 0}
-  stop: 0
-  timer: 3
+  waveDuration: 20
 --- !u!4 &931978064
 Transform:
   m_ObjectHideFlags: 0
