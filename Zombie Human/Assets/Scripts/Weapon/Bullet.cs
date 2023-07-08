@@ -9,14 +9,11 @@ public class Bullet : MonoBehaviour
         Destroy(gameObject, 4);
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player") || collision.gameObject.CompareTag("Zombie"))
         {
             Destroy(collision.gameObject);
-        }
-        else if (collision.gameObject.CompareTag("Human"))
-        {
             Destroy(gameObject);
         }
     }
