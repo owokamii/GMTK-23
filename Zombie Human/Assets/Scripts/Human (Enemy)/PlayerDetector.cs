@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-public class Bitten : MonoBehaviour
+public class PlayerDetector : MonoBehaviour
 {
     public UnityEvent _interactAction;
     public KeyCode _interactKey;
@@ -18,12 +18,18 @@ public class Bitten : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
+        {
             _inRange = true;
+            Debug.Log("dertevted");
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
+        {
             _inRange = false;
+            Debug.Log("not dertevted");
+        }
     }
 }
