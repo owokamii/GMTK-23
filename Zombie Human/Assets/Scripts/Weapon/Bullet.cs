@@ -20,7 +20,6 @@ public class Bullet : MonoBehaviour
             Destroy(collision.gameObject);
             Destroy(gameObject);
         }
-
         else if(collision.gameObject.CompareTag("Player"))
         {
             CreateBlood();

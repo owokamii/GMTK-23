@@ -23,7 +23,7 @@ public class Spawner : MonoBehaviour
     private float spawnInterval;
     private float spawnTimer;
 
-    public bool spawnerOn = false;
+    public bool spawnerOn;
 
     public PlayerHealth pHealth;
 
@@ -70,7 +70,7 @@ public class Spawner : MonoBehaviour
 
     public void GenerateWave()
     {
-        FindObjectOfType<AudioManager>().Play("Wave");
+        //FindObjectOfType<AudioManager>().Play("Wave");
         spawnerOn = true;
 
         waveNum += 1;

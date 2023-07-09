@@ -1,17 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerHealth : MonoBehaviour
 {
     public ParticleSystem blood;
 
+    public int sceneID;
+
     public float maxHealth = 100f;
     public float currentHealth;
 
     public HealthBar healthBar;
-
-    private bool isInDamageCD;
 
     void Start()
     {
@@ -19,9 +20,17 @@ public class PlayerHealth : MonoBehaviour
         healthBar.SetMaxHealth(maxHealth);
     }
 
+    private void Update()
+    {
+        if (currentHealth <= 0)
+        {
+            SceneManager.LoadScene(sceneID);
+        }
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Bullet") || collision.gameObject.CompareTag("Knife"))
+        if (collision.gameObject.CompareTag("Bullet"))
         {
             TakeDamage(10);
             CreateBlood();
@@ -32,7 +41,17 @@ public class PlayerHealth : MonoBehaviour
             Heal(20);
             FindObjectOfType<AudioManager>().Play("Pickup");
             Destroy(collision.gameObject);
-            Invoke("TakeDamage", 2);
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Knife"))
+        {
+            Debug.Log("FK U 2");
+            TakeDamage(10);
+            CreateBlood();
+            FindObjectOfType<AudioManager>().Play("ZombieHurt");
         }
     }
 
@@ -40,6 +59,7 @@ public class PlayerHealth : MonoBehaviour
     {
         currentHealth -= damage;
         healthBar.SetHealth(currentHealth);
+        Debug.Log("dmg");
     }
 
     public void Heal(float damage)
