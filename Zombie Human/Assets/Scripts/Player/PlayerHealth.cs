@@ -17,16 +17,26 @@ public class PlayerHealth : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.CompareTag("Bullet") || collision.gameObject.CompareTag("Knife"))
+        if (collision.gameObject.CompareTag("Bullet") || collision.gameObject.CompareTag("Knife"))
         {
             TakeDamage(10);
             FindObjectOfType<AudioManager>().Play("ZombieHurt");
+        }
+        else if (collision.gameObject.CompareTag("Meds"))
+        {
+            Heal(10);
         }
     }
 
     public void TakeDamage(float damage)
     {
         currentHealth -= damage;
+        healthBar.SetHealth(currentHealth);
+    }
+
+    public void Heal(float damage)
+    {
+        currentHealth += damage;
         healthBar.SetHealth(currentHealth);
     }
 }

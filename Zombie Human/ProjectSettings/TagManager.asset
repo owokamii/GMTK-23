@@ -8,6 +8,7 @@ TagManager:
   - Human
   - Bullet
   - Knife
+  - Meds
   layers:
   - Default
   - TransparentFX

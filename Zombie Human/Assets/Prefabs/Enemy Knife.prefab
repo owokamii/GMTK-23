@@ -42,6 +42,7 @@ GameObject:
   - component: {fileID: 7969003931654535748}
   - component: {fileID: 1020938933600186124}
   - component: {fileID: 6586223024972393208}
+  - component: {fileID: 2952549866952901741}
   m_Layer: 6
   m_Name: Knife
   m_TagString: Knife
@@ -144,6 +145,18 @@ PolygonCollider2D:
     - - {x: 0, y: 0.5773587}
       - {x: -0.5, y: -0.28866667}
       - {x: 0.5, y: -0.28866667}
+--- !u!114 &2952549866952901741
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4966523148179175829}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0636083c481b1cf4cb0948e28d68df76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5360787451234876603
 GameObject:
   m_ObjectHideFlags: 0
@@ -261,6 +274,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   zombiePrefab: {fileID: 7797231959231645532, guid: a8dd12e5ff3d3b442b827621eadd1840, type: 3}
+  healthPrefab: {fileID: 4304358680557137690, guid: aada57d62b396804cad914f9ca7a3b35, type: 3}
   spawnPoint: {fileID: 5820253315834247341}
   _interactAction:
     m_PersistentCalls:
@@ -326,7 +340,7 @@ MonoBehaviour:
     visualizeSensitivity: 0
   targetCompatibility: {fileID: 0}
   maxAcceleration: -2.5
-  rotationSpeed: 60
+  rotationSpeed: 80
   slowdownDistance: 0.6
   pickNextWaypointDist: 2
   endReachedDistance: 0.2

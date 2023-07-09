@@ -227,6 +227,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   zombiePrefab: {fileID: 7797231959231645532, guid: a8dd12e5ff3d3b442b827621eadd1840, type: 3}
+  healthPrefab: {fileID: 4304358680557137690, guid: aada57d62b396804cad914f9ca7a3b35, type: 3}
   spawnPoint: {fileID: 5820253315834247341}
   _interactAction:
     m_PersistentCalls:

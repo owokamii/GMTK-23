@@ -4,6 +4,8 @@ using UnityEngine.Events;
 public class EnemyHealth : MonoBehaviour
 {
     public GameObject zombiePrefab;
+    public GameObject healthPrefab;
+
     public Transform spawnPoint;
 
     public UnityEvent _interactAction;
@@ -30,6 +32,7 @@ public class EnemyHealth : MonoBehaviour
 
         else if(collision.gameObject.CompareTag("Zombie"))
         {
+            DropItem();
             FindObjectOfType<AudioManager>().Play("Bite");
             GameObject zombie = Instantiate(zombiePrefab, spawnPoint.position, spawnPoint.rotation);
             FindObjectOfType<AudioManager>().Play("ZombieGroan");
@@ -43,6 +46,22 @@ public class EnemyHealth : MonoBehaviour
         if(collision.gameObject.CompareTag("Player"))
         {
             _inRange = false;
+        }
+    }
+
+    private void DropItem()
+    {
+        int randNum = Random.Range(1, 6);
+        Debug.Log(randNum);
+
+        if (randNum > 3)
+        {
+            Instantiate(healthPrefab, spawnPoint.position, spawnPoint.rotation);
+            return;
+        }
+        else
+        {
+            return;
         }
     }
 }
