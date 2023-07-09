@@ -11,6 +11,8 @@ public class Spawner : MonoBehaviour
     public List<Enemy> enemies = new List<Enemy>();
     public List<GameObject> enemiesToSpawn = new List<GameObject>();
 
+    public int waveNum = 0;
+
     public int currWave;
     private int waveVal;
 
@@ -20,6 +22,10 @@ public class Spawner : MonoBehaviour
     private float waveTimer;
     private float spawnInterval;
     private float spawnTimer;
+
+    public bool spawnerOn = false;
+
+    public PlayerHealth pHealth;
 
     // Start is called before the first frame update
     void Start()
@@ -31,31 +37,42 @@ public class Spawner : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if(spawnTimer <= 0)
+        if(pHealth.currentHealth > 0 && spawnerOn)
         {
-            if (enemiesToSpawn.Count > 0)
+            if(spawnTimer <= 0)
             {
-                int randSpawn = Random.Range(0, spawnpoints.Length); // Randomize the spawnpoints
-                Instantiate(enemiesToSpawn[0], spawnpoints[randSpawn].position, Quaternion.identity);
-                enemiesToSpawn.RemoveAt(0);
-                spawnTimer = spawnInterval;
+                if(enemiesToSpawn.Count > 0)
+                {
+                    int randSpawn = Random.Range(0, spawnpoints.Length); // Randomize the spawnpoints
+                    Instantiate(enemiesToSpawn[0], spawnpoints[randSpawn].position, Quaternion.identity);
+                    enemiesToSpawn.RemoveAt(0);
+                    spawnTimer = spawnInterval;
+                }
+                else
+                {
+                    waveTimer = 0;
+                    currWave += 1;
+                    GenerateWave();
+                }
             }
             else
             {
-                waveTimer = 0;
-                currWave += 1;
-                GenerateWave();
+                spawnTimer -= Time.fixedDeltaTime;
+                waveTimer -= Time.fixedDeltaTime;
             }
         }
-        else
+        else if (pHealth.currentHealth <= 0 && spawnerOn)
         {
-            spawnTimer -= Time.fixedDeltaTime;
-            waveTimer -= Time.fixedDeltaTime;
+            spawnerOn = false;
         }
     }
 
     public void GenerateWave()
     {
+        spawnerOn = true;
+
+        waveNum += 1;
+
         waveVal = currWave * 10;
         GenerateEnemies();
 
