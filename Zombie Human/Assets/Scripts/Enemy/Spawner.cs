@@ -27,21 +27,18 @@ public class Spawner : MonoBehaviour
 
     public PlayerHealth pHealth;
 
-    // Start is called before the first frame update
     void Start()
     {
-        //StartCoroutine(waitSpawner());
         GenerateWave();
     }
 
-    // Update is called once per frame
     void FixedUpdate()
     {
-        if(pHealth.currentHealth > 0 && spawnerOn)
+        if (pHealth.currentHealth > 0 && spawnerOn)
         {
-            if(spawnTimer <= 0)
+            if (spawnTimer <= 0)
             {
-                if(enemiesToSpawn.Count > 0)
+                if (enemiesToSpawn.Count > 0)
                 {
                     int randSpawn = Random.Range(0, spawnpoints.Length); // Randomize the spawnpoints
                     Instantiate(enemiesToSpawn[0], spawnpoints[randSpawn].position, Quaternion.identity);
@@ -70,7 +67,7 @@ public class Spawner : MonoBehaviour
 
     public void GenerateWave()
     {
-        //FindObjectOfType<AudioManager>().Play("Wave");
+        FindObjectOfType<AudioManager>().Play("Wave");
         spawnerOn = true;
 
         waveNum += 1;
@@ -85,17 +82,17 @@ public class Spawner : MonoBehaviour
     public void GenerateEnemies()
     {
         List<GameObject> generatedEnemies = new List<GameObject>();
-        while(waveVal > 0)
+        while (waveVal > 0)
         {
             int randEnemyId = Random.Range(0, enemies.Count);
             int randEnemyCost = enemies[randEnemyId].cost;
 
-            if(waveVal - randEnemyCost >= 0)
+            if (waveVal - randEnemyCost >= 0)
             {
                 generatedEnemies.Add(enemies[randEnemyId].enemyPrefab);
                 waveVal -= randEnemyCost;
             }
-            else if(waveVal <= 0)
+            else if (waveVal <= 0)
             {
                 break;
             }
@@ -110,17 +107,4 @@ public class Spawner : MonoBehaviour
         public GameObject enemyPrefab;
         public int cost;
     }
-
-/*    IEnumerator waitSpawner()
-    {
-        while (!stop)
-        {
-            int randEnemy = Random.Range(0, enemies.Length); // Randomize the zombie type
-            int randSpawn = Random.Range(0, spawnpoints.Length); // Randomize the spawnpoints
-
-            Instantiate(enemies[randEnemy], spawnpoints[randSpawn].position, Quaternion.identity);
-            
-            yield return new WaitForSeconds(timer);
-        }
-    }
-*/}
+}

@@ -58,7 +58,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4966523148179175829}
   m_LocalRotation: {x: -0, y: -0, z: 0.0068348395, w: 0.99997663}
-  m_LocalPosition: {x: 0.362, y: 0.506, z: 0}
+  m_LocalPosition: {x: 0.371, y: 0.489, z: 0}
   m_LocalScale: {x: 0.3243504, y: 0.87560654, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -127,7 +127,7 @@ PolygonCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -145,8 +145,8 @@ PolygonCollider2D:
     - - {x: 0.38961077, y: 0.15154214}
       - {x: 0.06786938, y: 0.53412855}
       - {x: -0.47786114, y: 0.09494258}
-      - {x: -0.42928216, y: -0.25471568}
-      - {x: 0.49715185, y: -0.36584777}
+      - {x: -0.3896953, y: -0.2549162}
+      - {x: 0.46000096, y: -0.2996593}
 --- !u!114 &2952549866952901741
 MonoBehaviour:
   m_ObjectHideFlags: 0

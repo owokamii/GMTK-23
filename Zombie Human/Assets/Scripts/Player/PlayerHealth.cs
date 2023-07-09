@@ -30,7 +30,7 @@ public class PlayerHealth : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Bullet"))
+        if (collision.gameObject.CompareTag("Bullet") || collision.gameObject.CompareTag("Knife"))
         {
             TakeDamage(10);
             CreateBlood();
@@ -44,8 +44,10 @@ public class PlayerHealth : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+/*    private void OnCollisionEnter2D(Collision2D collision)
     {
+        Debug.Log("IDK");
+        Debug.Log(collision.gameObject.tag);
         if (collision.gameObject.CompareTag("Knife"))
         {
             Debug.Log("FK U 2");
@@ -54,18 +56,21 @@ public class PlayerHealth : MonoBehaviour
             FindObjectOfType<AudioManager>().Play("ZombieHurt");
         }
     }
-
+*/
     public void TakeDamage(float damage)
     {
         currentHealth -= damage;
         healthBar.SetHealth(currentHealth);
-        Debug.Log("dmg");
     }
 
     public void Heal(float damage)
     {
-        currentHealth += damage;
-        healthBar.SetHealth(currentHealth);
+        if(currentHealth < maxHealth) 
+        { 
+            currentHealth += damage;
+            healthBar.SetHealth(currentHealth);
+        }
+        
     }
 
     void CreateBlood()

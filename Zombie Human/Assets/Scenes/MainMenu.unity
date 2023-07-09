@@ -1600,8 +1600,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.0009653, y: 346.9885}
-  m_SizeDelta: {x: 764.097, y: 136.836}
+  m_AnchoredPosition: {x: -0.0000047467, y: 163}
+  m_SizeDelta: {x: 1251.08, y: 222.387}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &638479039
 MonoBehaviour:
@@ -1623,7 +1623,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Game Title
+  m_text: Munch & Multiply
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 32fe0676b592b624eb11992f6e3a1c9f, type: 2}
   m_sharedMaterial: {fileID: -6961677130960578690, guid: 32fe0676b592b624eb11992f6e3a1c9f, type: 2}
@@ -2134,8 +2134,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 737.807, y: 418.246}
-  m_SizeDelta: {x: 444.393, y: 243.679}
+  m_AnchoredPosition: {x: 806.5181, y: 455.92316}
+  m_SizeDelta: {x: 306.971, y: 168.325}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &773266734
 MonoBehaviour:
@@ -2727,7 +2727,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 48.600533}
+  m_AnchoredPosition: {x: 0, y: -152.86}
   m_SizeDelta: {x: 295.589, y: 133.974}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1031995620
@@ -3313,7 +3313,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1368035000
 RectTransform:
   m_ObjectHideFlags: 0
