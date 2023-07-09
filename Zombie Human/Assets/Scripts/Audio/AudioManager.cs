@@ -14,12 +14,13 @@ public class AudioManager : MonoBehaviour
             s.source.clip = s.clip;
             s.source.volume = s.volume;
             s.source.pitch = s.pitch;
+            s.source.loop = s.loop;
         }
     }
 
     void Start()
     {
-        
+        Play("Theme");
     }
 
     public void Play(string name)
@@ -30,11 +31,11 @@ public class AudioManager : MonoBehaviour
 
     public void Select()
     {
-        FindObjectOfType<AudioManager>().Play("Select");
+        Play("Select");
     }
 
     public void Cancel()
     {
-        FindObjectOfType<AudioManager>().Play("Cancel");
+        Play("Cancel");
     }
 }

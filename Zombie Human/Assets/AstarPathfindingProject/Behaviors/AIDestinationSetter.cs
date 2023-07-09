@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using System;
 
 namespace Pathfinding {
 	/// <summary>
@@ -38,11 +39,44 @@ namespace Pathfinding {
 		/// <summary>Updates the AI's destination every frame</summary>
 		void Update () 
 		{
-			if(target == null)
+			// your previous code
+			/*if(target == null) 
 			{
-                target = GameObject.Find(tag).transform; // dont touch as long as it works.. 
-            }
-			if (target != null && ai != null)
+                Debug.LogWarning("Searching for next victim ...");
+                target = GameObject.Find(tag).transform; // dont touch as long as it works..
+				return;
+            }*/
+
+			try
+			{
+				if (target == null)
+				{
+					target = GameObject.Find(tag).transform;
+				}
+			}
+			catch (NullReferenceException)
+			{
+				Debug.Log("Can't Find Hoomans");
+			}
+
+/*            if (target == null)
+			{
+                try
+                {
+                    if (target == null)
+                    {
+                        target = GameObject.Find(tag).transform;
+                    }
+                }
+                catch (NullReferenceException)
+                {
+                    Debug.Log("Can't Find Hoomans");
+                }
+
+                return;
+            }*/
+
+            if (target != null && ai != null)
 			{
 				ai.destination = target.position;
 			}

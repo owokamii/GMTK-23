@@ -10,10 +10,15 @@ public class PlayerMovement : MonoBehaviour
 
     private Vector2 moveDirection;
 
-    // Update is called once per frame
     void Update()
     {
         ProcessInputs();
+
+        if(moveDirection != Vector2.zero)
+        {
+            float angle = Mathf.Atan2(moveDirection.y, moveDirection.x) * Mathf.Rad2Deg;
+            transform.rotation = Quaternion.Euler(0, 0, angle);
+        }
     }
 
     void FixedUpdate()
@@ -32,10 +37,5 @@ public class PlayerMovement : MonoBehaviour
     void Move()
     {
         rb.velocity = new Vector2(moveDirection.x * moveSpeed, moveDirection.y * moveSpeed);
-    }
-
-    void Flip()
-    {
-
     }
 }

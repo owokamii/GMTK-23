@@ -1,8 +1,11 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-public class PlayerDetector : MonoBehaviour
+public class EnemyHealth : MonoBehaviour
 {
+    public GameObject zombiePrefab;
+    public Transform spawnPoint;
+
     public UnityEvent _interactAction;
     public KeyCode _interactKey;
     
@@ -12,7 +15,10 @@ public class PlayerDetector : MonoBehaviour
     {
         if (_inRange)
             if (Input.GetKeyDown(_interactKey))
+            {
+                FindObjectOfType<AudioManager>().Play("Bite");
                 _interactAction.Invoke();
+            }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -20,13 +26,14 @@ public class PlayerDetector : MonoBehaviour
         if(collision.gameObject.CompareTag("Player"))
         {
             _inRange = true;
-            Debug.Log("detected");
         }
 
         else if(collision.gameObject.CompareTag("Zombie"))
         {
-            _inRange = true;
-            Debug.Log("bitten");
+            FindObjectOfType<AudioManager>().Play("Bite");
+            GameObject zombie = Instantiate(zombiePrefab, spawnPoint.position, spawnPoint.rotation);
+            FindObjectOfType<AudioManager>().Play("ZombieGroan");
+            zombie.GetComponent<Rigidbody2D>();
             Destroy(gameObject);
         }
     }
@@ -36,7 +43,6 @@ public class PlayerDetector : MonoBehaviour
         if(collision.gameObject.CompareTag("Player"))
         {
             _inRange = false;
-            Debug.Log("not detected");
         }
     }
 }
