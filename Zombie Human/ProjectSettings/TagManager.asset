@@ -9,6 +9,7 @@ TagManager:
   - Bullet
   - Knife
   - Meds
+  - Walls
   layers:
   - Default
   - TransparentFX
@@ -17,8 +18,8 @@ TagManager:
   - Water
   - UI
   - Obstacle
-  - 
-  - 
+  - Wall
+  - Human
   - 
   - 
   - 
@@ -45,4 +46,7 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Effects
+    uniqueID: 4085762711
     locked: 0

@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
+    public ParticleSystem blood;
+
     void Awake()
     {
         Destroy(gameObject, 4);
@@ -13,6 +15,7 @@ public class Bullet : MonoBehaviour
     {
         if(collision.gameObject.CompareTag("Zombie"))
         {
+            CreateBlood();
             FindObjectOfType<AudioManager>().Play("ZombieHurt");
             Destroy(collision.gameObject);
             Destroy(gameObject);
@@ -20,7 +23,13 @@ public class Bullet : MonoBehaviour
 
         else if(collision.gameObject.CompareTag("Player"))
         {
+            CreateBlood();
             Destroy(gameObject);
         }
+    }
+
+    void CreateBlood()
+    {
+        blood.Play();
     }
 }

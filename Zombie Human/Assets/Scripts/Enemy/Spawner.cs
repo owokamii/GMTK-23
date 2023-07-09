@@ -52,6 +52,7 @@ public class Spawner : MonoBehaviour
                 {
                     waveTimer = 0;
                     currWave += 1;
+                    waveDuration += 10;
                     GenerateWave();
                 }
             }
@@ -69,6 +70,7 @@ public class Spawner : MonoBehaviour
 
     public void GenerateWave()
     {
+        FindObjectOfType<AudioManager>().Play("Wave");
         spawnerOn = true;
 
         waveNum += 1;

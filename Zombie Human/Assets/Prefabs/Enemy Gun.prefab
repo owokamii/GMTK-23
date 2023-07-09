@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5820253315834247341}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: SpawnPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41,7 +41,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7757221753442528819}
   - component: {fileID: 6907372537445523090}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: Gun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -88,7 +88,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 684791978766027753}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: FirePoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -126,7 +126,7 @@ GameObject:
   - component: {fileID: 4477503531900358758}
   - component: {fileID: 8587379299160132178}
   - component: {fileID: 7191017395046766135}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Enemy Gun
   m_TagString: Human
   m_Icon: {fileID: 0}
@@ -185,7 +185,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0.12}
   serializedVersion: 2
-  m_Radius: 0.99
+  m_Radius: 1.11
 --- !u!114 &44156981371011388
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -293,12 +293,12 @@ MonoBehaviour:
     visualizeSensitivity: 0
   targetCompatibility: {fileID: 0}
   maxAcceleration: -2.5
-  rotationSpeed: 180
-  slowdownDistance: 0.6
-  pickNextWaypointDist: 2
+  rotationSpeed: 360
+  slowdownDistance: 2
+  pickNextWaypointDist: 0.5
   endReachedDistance: 0.2
   alwaysDrawGizmos: 0
-  slowWhenNotFacingTarget: 1
+  slowWhenNotFacingTarget: 0
   whenCloseToDestination: 0
   constrainInsideGraph: 0
 --- !u!114 &7191017395046766135
@@ -327,7 +327,7 @@ GameObject:
   - component: {fileID: 5818955503404585279}
   - component: {fileID: 5818955503404585264}
   - component: {fileID: 7300491170646044851}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: Human
   m_TagString: Human
   m_Icon: {fileID: 0}
@@ -465,7 +465,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2734960899932156121}
   - component: {fileID: 455292279644428466}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: Light 2D
   m_TagString: Untagged
   m_Icon: {fileID: 0}

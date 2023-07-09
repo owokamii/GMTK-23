@@ -5,6 +5,8 @@ using UnityEngine.EventSystems;
 
 public class PlayerMovement : MonoBehaviour
 {
+    public ParticleSystem trail;
+
     public float moveSpeed;
     public Rigidbody2D rb;
 
@@ -18,6 +20,7 @@ public class PlayerMovement : MonoBehaviour
         {
             float angle = Mathf.Atan2(moveDirection.y, moveDirection.x) * Mathf.Rad2Deg;
             transform.rotation = Quaternion.Euler(0, 0, angle);
+            CreateTrail();
         }
     }
 
@@ -37,5 +40,10 @@ public class PlayerMovement : MonoBehaviour
     void Move()
     {
         rb.velocity = new Vector2(moveDirection.x * moveSpeed, moveDirection.y * moveSpeed);
+    }
+
+    void CreateTrail()
+    {
+        trail.Play();
     }
 }
