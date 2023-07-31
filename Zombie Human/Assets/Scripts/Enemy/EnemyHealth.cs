@@ -13,12 +13,16 @@ public class EnemyHealth : MonoBehaviour
     
     private bool _inRange;
 
+    [SerializeField]
+    int points;
+
     void Update()
     {
         if (_inRange)
             if (Input.GetKeyDown(_interactKey))
             {
-                FindObjectOfType<AudioManager>().Play("Bite");
+                ScoreManager.Instance.AddPoint(points);
+                AudioManager.Instance.Play("Bite");
                 _interactAction.Invoke();
             }
     }
@@ -33,9 +37,10 @@ public class EnemyHealth : MonoBehaviour
         else if(collision.gameObject.CompareTag("Zombie"))
         {
             DropItem();
-            FindObjectOfType<AudioManager>().Play("Bite");
+            ScoreManager.Instance.AddPoint(points);
+            AudioManager.Instance.Play("Bite");
             GameObject zombie = Instantiate(zombiePrefab, spawnPoint.position, spawnPoint.rotation);
-            FindObjectOfType<AudioManager>().Play("ZombieGroan");
+            AudioManager.Instance.Play("ZombieGroan");
             zombie.GetComponent<Rigidbody2D>();
             Destroy(gameObject);
         }

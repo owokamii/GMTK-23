@@ -76,7 +76,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60fd9e7b784224445877975d5fa0d0e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioManager: {fileID: 1209934297798086079, guid: eee6c6f94f1e8394590a2f01fe692a5f, type: 3}
   bulletPrefab: {fileID: 5813726414597558783, guid: cdeaaaecdc1ff214cb7a94484c1e778f, type: 3}
   firePoint: {fileID: 684791978766027753}
   fireForce: 20
@@ -246,6 +245,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   _interactKey: 32
+  points: 100
 --- !u!114 &4477503531900358758
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -276,7 +276,7 @@ MonoBehaviour:
   radius: 0.5
   height: 2
   canMove: 1
-  maxSpeed: 1
+  maxSpeed: 1.5
   gravity: {x: NaN, y: NaN, z: NaN}
   groundMask:
     serializedVersion: 2

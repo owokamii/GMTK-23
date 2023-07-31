@@ -12,8 +12,10 @@ public class Bitten : MonoBehaviour
         if (!isTriggered)
         {
             isTriggered = true;
+
             GameObject zombie = Instantiate(zombiePrefab, spawnPoint.position, spawnPoint.rotation);
             zombie.GetComponent<Rigidbody2D>();
+
             Destroy(gameObject);
         }
     }

@@ -29,7 +29,7 @@ namespace Pathfinding {
 			// scripts as well. So it makes sense that it is up to date every frame.
 			if (ai != null) ai.onSearchPath += Update;
 
-            target = GameObject.Find(tag).transform;
+            target = GameObject.FindGameObjectWithTag(tag).transform;
         }
 
 		void OnDisable () {
@@ -39,42 +39,17 @@ namespace Pathfinding {
 		/// <summary>Updates the AI's destination every frame</summary>
 		void Update () 
 		{
-			// your previous code
-			/*if(target == null) 
-			{
-                Debug.LogWarning("Searching for next victim ...");
-                target = GameObject.Find(tag).transform; // dont touch as long as it works..
-				return;
-            }*/
-
 			try
 			{
 				if (target == null)
 				{
-					target = GameObject.Find(tag).transform;
+					target = GameObject.FindGameObjectWithTag(tag).transform;
 				}
 			}
 			catch (NullReferenceException)
 			{
 				Debug.Log("Can't Find Hoomans");
 			}
-
-/*            if (target == null)
-			{
-                try
-                {
-                    if (target == null)
-                    {
-                        target = GameObject.Find(tag).transform;
-                    }
-                }
-                catch (NullReferenceException)
-                {
-                    Debug.Log("Can't Find Hoomans");
-                }
-
-                return;
-            }*/
 
             if (target != null && ai != null)
 			{

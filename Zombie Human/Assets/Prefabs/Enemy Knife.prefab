@@ -160,7 +160,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blood: {fileID: 1640181372733681178}
-  health: {fileID: 7719295020107575801, guid: fbb139f4edb853c408cd60c7d47c09d4, type: 3}
 --- !u!1 &5360787451234876603
 GameObject:
   m_ObjectHideFlags: 0
@@ -296,6 +295,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   _interactKey: 32
+  points: 150
 --- !u!114 &4477503531900358758
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -326,7 +326,7 @@ MonoBehaviour:
   radius: 0.5
   height: 2
   canMove: 1
-  maxSpeed: 3
+  maxSpeed: 3.5
   gravity: {x: NaN, y: NaN, z: NaN}
   groundMask:
     serializedVersion: 2
@@ -344,7 +344,7 @@ MonoBehaviour:
     visualizeSensitivity: 0
   targetCompatibility: {fileID: 0}
   maxAcceleration: -2.5
-  rotationSpeed: 150
+  rotationSpeed: 170
   slowdownDistance: 0
   pickNextWaypointDist: 0.5
   endReachedDistance: 0.2

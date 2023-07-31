@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 814069555379127882}
   - component: {fileID: 814069555379127893}
   - component: {fileID: 814069555379127883}
-  m_Layer: 6
+  m_Layer: 9
   m_Name: Zombie
   m_TagString: Zombie
   m_Icon: {fileID: 0}
@@ -113,7 +113,7 @@ GameObject:
   m_Component:
   - component: {fileID: 445806769096496576}
   - component: {fileID: 5615077208029306059}
-  m_Layer: 6
+  m_Layer: 9
   m_Name: Light 2D
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -228,7 +228,7 @@ GameObject:
   - component: {fileID: 7405246434288495174}
   - component: {fileID: 27738192963158304}
   - component: {fileID: 1261954153587521713}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Ally
   m_TagString: Zombie
   m_Icon: {fileID: 0}
@@ -384,7 +384,7 @@ GameObject:
   - component: {fileID: 2386874477514276096}
   - component: {fileID: 3478966913546273190}
   - component: {fileID: 7282079939566388099}
-  m_Layer: 6
+  m_Layer: 9
   m_Name: Blood
   m_TagString: Untagged
   m_Icon: {fileID: 0}

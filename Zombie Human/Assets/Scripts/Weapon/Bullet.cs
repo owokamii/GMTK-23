@@ -16,7 +16,9 @@ public class Bullet : MonoBehaviour
         if(collision.gameObject.CompareTag("Zombie"))
         {
             CreateBlood();
-            FindObjectOfType<AudioManager>().Play("ZombieHurt");
+
+            AudioManager.Instance.Play("ZombieHurt");
+
             Destroy(collision.gameObject);
             Destroy(gameObject);
         }

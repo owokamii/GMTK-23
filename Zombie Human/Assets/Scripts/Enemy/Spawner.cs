@@ -6,7 +6,6 @@ using UnityEngine;
 public class Spawner : MonoBehaviour
 {
     public Transform[] spawnpoints; // Spawnpoints
-    //public GameObject[] enemies; // Customer list
 
     public List<Enemy> enemies = new List<Enemy>();
     public List<GameObject> enemiesToSpawn = new List<GameObject>();
@@ -16,7 +15,7 @@ public class Spawner : MonoBehaviour
     public int currWave;
     private int waveVal;
 
-    public Vector2 spawnVal;
+    //public Vector2 spawnVal;
 
     public int waveDuration;
     private float waveTimer;
@@ -24,12 +23,26 @@ public class Spawner : MonoBehaviour
     private float spawnTimer;
 
     public bool spawnerOn;
+    public float delay;
 
     public PlayerHealth pHealth;
 
     void Start()
     {
+        spawnerOn = true;
         GenerateWave();
+    }
+
+    private void Update()
+    {
+        if (spawnerOn && waveNum == 0 && delay == 3)
+        {
+            GenerateEnemies();
+        }
+        else
+        {
+            delay += Time.deltaTime;
+        }
     }
 
     void FixedUpdate()
@@ -38,18 +51,20 @@ public class Spawner : MonoBehaviour
         {
             if (spawnTimer <= 0)
             {
-                if (enemiesToSpawn.Count > 0)
+                if (enemiesToSpawn.Count > 0 && delay >= 3)
                 {
                     int randSpawn = Random.Range(0, spawnpoints.Length); // Randomize the spawnpoints
                     Instantiate(enemiesToSpawn[0], spawnpoints[randSpawn].position, Quaternion.identity);
                     enemiesToSpawn.RemoveAt(0);
                     spawnTimer = spawnInterval;
                 }
-                else
+                else if (enemiesToSpawn.Count <= 0)
                 {
+                    Debug.Log("Generating wave");
                     waveTimer = 0;
                     currWave += 1;
-                    waveDuration += 10;
+                    waveDuration += 5;
+                    delay = 0;
                     GenerateWave();
                 }
             }
@@ -67,7 +82,7 @@ public class Spawner : MonoBehaviour
 
     public void GenerateWave()
     {
-        FindObjectOfType<AudioManager>().Play("Wave");
+        AudioManager.Instance.Play("Wave");
         spawnerOn = true;
 
         waveNum += 1;

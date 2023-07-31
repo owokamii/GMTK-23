@@ -9,8 +9,8 @@ public class PlayerHealth : MonoBehaviour
 
     public int sceneID;
 
-    public float maxHealth = 100f;
-    public float currentHealth;
+    public int maxHealth = 100;
+    public int currentHealth;
 
     public HealthBar healthBar;
 
@@ -30,40 +30,35 @@ public class PlayerHealth : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Bullet") || collision.gameObject.CompareTag("Knife"))
+        if (collision.gameObject.CompareTag("Bullet"))
         {
             TakeDamage(10);
             CreateBlood();
-            FindObjectOfType<AudioManager>().Play("ZombieHurt");
+
+            AudioManager.Instance.Play("ZombieHurt");
+        }
+        else if (collision.gameObject.CompareTag("Knife"))
+        {
+            TakeDamage(15);
+            CreateBlood();
+
+            AudioManager.Instance.Play("ZombieHurt");
         }
         else if (collision.gameObject.CompareTag("Meds"))
         {
             Heal(20);
-            FindObjectOfType<AudioManager>().Play("Pickup");
+            AudioManager.Instance.Play("Pickup");
             Destroy(collision.gameObject);
         }
     }
 
-/*    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        Debug.Log("IDK");
-        Debug.Log(collision.gameObject.tag);
-        if (collision.gameObject.CompareTag("Knife"))
-        {
-            Debug.Log("FK U 2");
-            TakeDamage(10);
-            CreateBlood();
-            FindObjectOfType<AudioManager>().Play("ZombieHurt");
-        }
-    }
-*/
-    public void TakeDamage(float damage)
+    public void TakeDamage(int damage)
     {
         currentHealth -= damage;
         healthBar.SetHealth(currentHealth);
     }
 
-    public void Heal(float damage)
+    public void Heal(int damage)
     {
         if(currentHealth < maxHealth) 
         { 
